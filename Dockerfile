@@ -1,6 +1,6 @@
 FROM openjdk:8-jdk-alpine
 
-ENV VERSION=2.0.73
+ENV VERSION 2.0.73
 ENV PORT 9090
 
 EXPOSE 9090/tcp
