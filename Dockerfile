@@ -1,6 +1,7 @@
 FROM openjdk:8-jdk-alpine
 
-ENV VERSION=2.0.73
+ENV VERSION 2.0.77
+ENV UI_VERSION 0.3.2
 ENV PORT 9090
 
 EXPOSE 9090/tcp
@@ -22,7 +23,7 @@ RUN curl -JL https://github.com/linkedin/cruise-control/archive/${VERSION}.tar.g
     cp -a config /cruise-control && \
     cp -a kafka-cruise-control-start.sh /cruise-control && \
     rm -rf /tmp/cruise-control-${VERSION} && \
-    curl -JL https://github.com/linkedin/cruise-control-ui/releases/latest/download/cruise-control-ui.tar.gz | \
+    curl -JL https://github.com/linkedin/cruise-control-ui/releases/download/v${UI_VERSION}/cruise-control-ui-${UI_VERSION}.tar.gz | \
     tar xzvf - -C /tmp --exclude '*/README.txt' && \
     mv /tmp/cruise-control-ui /cruise-control/cruiseA-control-ui && \
     rm -rf /root/.gradle
