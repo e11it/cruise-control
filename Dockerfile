@@ -25,10 +25,9 @@ RUN curl -JL https://github.com/linkedin/cruise-control/archive/${VERSION}.tar.g
     rm -rf /tmp/cruise-control-${VERSION} && \
     curl -JL https://github.com/linkedin/cruise-control-ui/releases/download/v${UI_VERSION}/cruise-control-ui-${UI_VERSION}.tar.gz | \
     tar xzvf - -C /tmp --exclude '*/README.txt' && \
-    mv /tmp/cruise-control-ui /cruise-control/cruiseA-control-ui && \
+    mv /tmp/cruise-control-ui /cruise-control/cruise-control-ui && \
     rm -rf /root/.gradle
 
 WORKDIR /cruise-control
 
-ENTRYPOINT [ "./kafka-cruise-control-start.sh" ]
-CMD ["config/cruisecontrol.properties"]
+CMD ["./kafka-cruise-control-start.sh", "config/cruisecontrol.properties"]
